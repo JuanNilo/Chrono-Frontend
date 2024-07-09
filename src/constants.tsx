@@ -24,7 +24,7 @@ export const SIDENAV_ITEMS_PATIENTS: SideNaviItem[] = [
     {
         title: "Historial Clinico",
         path: '/record/',
-        icon: <FaHistory size={24} color="black" />,
+        icon: <FaHistory size={34} color="black" />,
     },
 ];
 export const SIDENAV_ITEMS_EMPLOYEES: SideNaviItem[] = [
@@ -43,7 +43,7 @@ export const SIDENAV_ITEMS_SECRETARY: SideNaviItem[] = [
     {
         title: "Home",
         path: "/secretary",
-        icon: <AiFillHome size={24} color="black" />,
+        icon: <AiFillHome size={34} color="black" />,
     },
     {
         title: "Citas",
@@ -53,6 +53,6 @@ export const SIDENAV_ITEMS_SECRETARY: SideNaviItem[] = [
     {
         title: "Personal",
         path: "/secretary/employees",
-        icon: <BsFilePersonFill size={24} color="black" />,
+        icon: <BsFilePersonFill size={34} color="black" />,
     }
 ];

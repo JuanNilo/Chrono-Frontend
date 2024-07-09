@@ -14,7 +14,7 @@ export default function Services() {
                 <h2 className="text-4xl font-bold text-black">Nuestros servicios</h2>
                 <p className="text-xl text-black">Contamos con un equipo de profesionales en todas las areas de la salud</p>
                 {/* Card zone */}
-                <div className="md:flex grid grid-cols-2 justify-center md:justify-between w-full md:w-[80%] mx-auto py-8 gap-y-2">
+                <div className="md:flex grid grid-cols-2 justify-center md:justify-between w-full md:w-[80%] mx-auto py-8 px-4 gap-y-2">
                     
                         <Card title={'Previsiones'} description={'Contamos con cobertura de Isapres y Fonasa'} >
                             <div className="flex justify-center items-center h-[70%] w-[80%] mx-auto">

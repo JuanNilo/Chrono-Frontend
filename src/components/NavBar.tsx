@@ -7,9 +7,11 @@ import { usePathname, useRouter } from 'next/navigation'
 import { SIDENAV_ITEMS, SIDENAV_ITEMS_EMPLOYEES, SIDENAV_ITEMS_PATIENTS, SIDENAV_ITEMS_SECRETARY } from "@/constants";
 import { SideNaviItem } from "@/types";
 import Link from "next/link";
-import { MdOutlineLocalHospital } from "react-icons/md";
+import { MdOutlineLocalHospital, MdTimer } from "react-icons/md";
 import CustomButton from "./custom-button";
 import { useUserStore } from "@/store/userStorage";
+import { LuTimerReset } from "react-icons/lu";
+import { FaUserCircle } from "react-icons/fa";
 
 export default function NavBar() {
     const [isOpenModal, setIsOpenModal] = useState(false);
@@ -41,56 +43,62 @@ export default function NavBar() {
 
 
     return (
-        <nav className="w-[100%] h-14 bg-secondaryColor flex justify-between items-center p-10">
+        <nav className="w-[100%] h-14 bg-secondaryColor flex justify-center items-center p-10">
             <ModalLogin isOpen={isOpenModal} onClose={closeModalLogin} />
-            <Link href="/">
-                <CustomButton location={"navbar"} text={"Centro Medico"} >
-                    <MdOutlineLocalHospital size={30} color="White" />
-                </CustomButton>
-            </Link>
-            <div className="w-[70%]   ">
-                {id_user != -1 ? 
-                    // Si el usuario esta logeado
-                (
-                    <div className="flex   items-center justify-between">
-                        {SIDENAV_ITEMS_CASE.map((item: SideNaviItem, index: number) => (
-                            <div key={item.path}>
-                                <Link
-                                    href={item.path}
-                                    className={`flex flex-row items-center md:px-6 h-12 w-50 rounded-lg m-2`}
-                                >
-                                    <div className="flex items-center justify-center">{item.icon}</div>
-                                    <div className="mx-2 text-lg font-semibold text-zinc-900">{item.title}</div>
-                                </Link>
+            <div className="w-full flex justify-between ">
+                <Link href="/">
+                    <div className={`flex items-center justify-center h-12 w-50 rounded-lg m-2 `} >
+                        <div className="flex flex-row items-center">
+                            <div>
+                                <LuTimerReset size={34} color="black" />
                             </div>
-                        ))}
-                        {/* Boton de usuario y cerrar sesion */}
+                            <div className="hidden md:block mx-2 text-lg font-semibold text-black">CHRONO</div>
+                        </div>
+                    </div>
+                </Link>
+                {/* Opciones */}
+                {
+                    id_user != -1 && (
+
                         <div className="flex">
+                            {SIDENAV_ITEMS_CASE.map((item: SideNaviItem, index: number) => (
+                                <div key={item.path}>
+                                    <Link
+                                        href={item.path}
+                                        className={`flex flex-row items-center md:px-6 h-12 w-50 rounded-lg m-2`}
+                                    >
+                                        <CustomButton location={"navbar"} text={item.title}>
+                                            <div className="flex items-center justify-center">{item.icon}</div>
+                                        </CustomButton>
+                                    </Link>
+                                </div>
+                            ))}
+                        </div>
+                    )
+                }
+                <div>
+                    {id_user != -1 ?
+                        (
 
-                            <button onClick={() => { router.push('/account') }} className="flex items-center justify-center h-12 p-2 bg-primaryColor rounded-lg m-2">
-                                <CustomButton location={"navbar"} text={email_user}>
-                                    <TbUserFilled size={25} color="white" />
+                            <div className="flex">
+
+                                <button onClick={() => { router.push('/account') }} className="flex items-center justify-center h-12 rounded-lg m-2">
+                                    <FaUserCircle size={34} color="black" />
+                                </button>
+                            </div>
+
+                        ) :
+                        // Si el usuario no esta logeado
+                        (<div className="flex justify-end">
+                            <button onClick={openModalLogin}>
+                                <CustomButton location={"navbar"} text={"Iniciar Sesión"} >
+                                    <TbLogin2 size={34} color="black" />
                                 </CustomButton>
-                            </button>
-                            <button onClick={handleLogOut} className="flex items-center justify-center h-12 p-2 bg-primaryColor rounded-lg m-2">
-
-                                <TbLogin2 size={25} color="white" />
                             </button>
                         </div>
 
-                    </div>
-
-                ) : 
-                // Si el usuario no esta logeado
-                (<div className="flex justify-end">
-                        <button onClick={openModalLogin}>
-                            <CustomButton location={"navbar"} text={"Iniciar Sesión"} >
-                                <TbLogin2 size={25} color="white" />
-                            </CustomButton>
-                        </button>
-                    </div>
-
-                )}
+                        )}
+                </div>
             </div>
         </nav>
     );
