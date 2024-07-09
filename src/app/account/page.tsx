@@ -66,10 +66,10 @@ export default function AccountPage (){
 
     }, [id_user]);
     return (
-        <div className="my-5">
+        <div className="md:my-5">
             {/* Quiero renderizar el componente SkeletonAccount si la data aun no ha sido cargada */}
             {dataPatient || dataEmployee ?   (
-            <div className="bg-white w-[80%] h-[80vh] p-12 mx-auto my-auto rounded-lg drop-shadow-lg">
+            <div className="bg-white w-[100%] md:w-[80%] h-[90vh] md:h-[80vh] p-12 mx-auto md:my-auto md:rounded-lg md:drop-shadow-lg">
                 <div className="h-[100%]">
                     {dataPatient ? (
                         <AccountData

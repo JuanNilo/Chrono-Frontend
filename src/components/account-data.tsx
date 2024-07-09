@@ -116,8 +116,9 @@ export default function AccountData({ id, id_specialty, rut, email, password, na
     return (
         <div className="h-[100%]">
             <div className="h-[20%] flex items-center justify-between ">
-                <h1 className="text-3xl font-bold">Account Information</h1>
-
+                <h1 className="text-3xl font-bold">
+                    Datos de la cuenta
+                </h1>
                 {
                     isEdit ?
                         <button disabled={id_user == -1} onClick={() => setIsEdit(!isEdit)} className="flex justify-between items-center ml-4 bg-red-500 p-2 rounded-lg w-28 h-12 px-4">

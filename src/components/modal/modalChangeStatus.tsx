@@ -90,7 +90,7 @@ export default function ModalChangeStatus({ id, isOpen, onClose }: ModalChangeSt
         <>
             {isOpen && (
                 <div className="fixed inset-0 z-20 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none">
-                    <div className="relative z-30 h-[40%] w-[30%] rounded-lg   mx-auto bg-white shadow-lg flex items-center justify-center border-2 border-slate-200">
+                    <div className="relative z-30 h-[45%] md:h-[40%] w-[100%] md:w-[30%] rounded-lg   mx-auto bg-white shadow-lg flex items-center justify-center border-2 border-slate-200">
                         <div className="col-span-1 flex flex-col h-[100%] w-[100%] ">
                             {/* Parte superior */}
                             <div className='  flex justify-between border-b-1 border-slate-200 p-4 '>

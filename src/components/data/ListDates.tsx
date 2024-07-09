@@ -162,24 +162,24 @@ export default function AppointmentsPage({ id, vista }: { id: number, vista: str
 
 
     return (
-        <div className="w-[100%] p-8">
+        <div className="w-[100%] md:p-8">
             <ModalEditDate id={idDate} isOpen={isOpenModal} onClose={closeModal} isEditAviable={isEditAviable} />
             <ModalChangeStatus id={idDate} isOpen={isOpenModalStatus} onClose={closeModal} />
             <ModalCancel message=" ¿Está seguro que desea cancelar la cita?" isOpen={isOpenModalCancel} onCancel={closeModalCancel} onConfirm={handleCancelDate} />
             <>
-                <h1 className=" text-3xl font-bold">Historial de citas medicas</h1>
+                <h1 className="text-3xl font-bold">Historial de citas medicas</h1>
                 {
                     role_user === 'patient'
                         ? (
-                            <p className="text-xl flex gap-x-2">Utilice {<FaEye size={24} color="black" />} para ver los detalles de su cita y {<MdCancel size={24} color="black" />} para cancelar la cita.  (Solo se pueden cancelar citas con 24 horas de anticipación)
+                            <p className="text-medium md:text-xl flex gap-x-2">Utilice {<FaEye size={24} color="black" />} para ver los detalles de su cita y {<MdCancel size={24} color="black" />} para cancelar la cita.  (Solo se pueden cancelar citas con 24 horas de anticipación)
                             </p>
                         ) : (
-                            <p className="text-xl flex gap-x-2">Utilice {<FaEye size={24} color="black" />} para ver la cita, {<FaEdit size={24} color="black" />} para editar la cita, {<FaCalendar size={24} color="black" />} para reagendar la cita y {<FaUser size={24} color="black" />} para ver el perfil del paciente.
+                            <p className="text-medium md:text-xl flex gap-x-2">Utilice {<FaEye size={24} color="black" />} para ver la cita, {<FaEdit size={24} color="black" />} para editar la cita, {<FaCalendar size={24} color="black" />} para reagendar la cita y {<FaUser size={24} color="black" />} para ver el perfil del paciente.
                             </p>
 
                         )
                 }
-                <p className="text-xl font-semibold">Seleccione el estado de la cita para cambiarlo.</p>
+                <p className="text-xl font-semibold ">Seleccione el estado de la cita para cambiarlo.</p>
                 <div className=" h-[70vh] overflow-scroll mt-4">
                     <table className=" w-full">
                         <thead className=" border-b-1 h-12 sticky top-0 bg-secondaryColor border-gray-300 p-4 ">
@@ -215,9 +215,9 @@ export default function AppointmentsPage({ id, vista }: { id: number, vista: str
                                                 <td>{date.day} - {date.hour}</td>
                                                 <td>
                                                     <button onClick={() => openModalStatus(date.date.id)} disabled={role_user === 'patient'}>
-                                                        <p className={` w-24 mx-auto 
+                                                        <div className={` w-4 h-4 md:h-7 md:w-24 mx-auto 
                                                 rounded-lg border-2 border-black ${date.date.status == 'Pendiente' ? 'bg-yellow-100 text-black border-yellow-400' : date.date.status == 'Confirmada' ? 'bg-green-100 text-black border-green-400' : 'bg-red-100 text-black border-red-400'}
-                                                `}>{date.date.status}</p>
+                                                `}><p className="hidden md:block">{date.date.status}</p></div>
                                                     </button>
                                                 </td>
                                                 {
@@ -231,7 +231,7 @@ export default function AppointmentsPage({ id, vista }: { id: number, vista: str
                                                             </button>
                                                         </td>
                                                     ) : (
-                                                        <td className="flex justify-around items-center py-4">
+                                                        <td className="grid grid-cols-1 gap-y-1 md:flex justify-around items-center py-4">
                                                             <Link href={`/record/${date.date.patient_id}`}>
                                                                 <FaUser size={24} color="black" />
                                                             </Link>

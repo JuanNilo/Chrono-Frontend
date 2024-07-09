@@ -216,8 +216,8 @@ export default function AppointmentsPage() {
 
             </div>
             <h1 className="text-center text-3xl font-bold mt-10">Agendar Cita Medica</h1>
-            <div className="flex flex-row-3 px-40 p-4">
-                <div className=" w-[100%] grid grid-cols-3 gap-x-4">
+            <div className="flex flex-row-3 md:px-40 p-4">
+                <div className=" w-[100%] grid grid-cols-1 md:grid-cols-3 gapx-y-4 gap-x-4">
                     {/* Seleccion especialdiad y doctor */}
                     <section className="flex flex-wrap py-6 justify-center items-center bg-white rounded-md px-3 border-1 border-gray-200">
                     <p className="font-semibold">Seleccione la especialdiad y el medico que desea agendar su cita</p>
@@ -307,7 +307,7 @@ export default function AppointmentsPage() {
                 </div>
                 
             </div>
-            <div className="flex justify-center mt-1">
+            <div className="flex justify-center mt-1 pb-8">
                 <button
                     className="bg-primaryColor text-white font-bold text-xl rounded h-[5vh] w-[79%]"
                     disabled={IdDoctorSelect === 0 || IdspecialitySelect === '' || IdScheduleSelect === 0 || IdReasonSelect === 0 || buttonLoading ? true : false}
