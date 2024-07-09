@@ -71,7 +71,7 @@ export default function Employee(){
 
             {
                 (role_user == 'employee' || role_user=="secretary") ? (
-                    <div className="flex h-[80vh] md:h-[60vh] md:p-16 gap-y-10 w-[100%] md:w-[70%] mx-auto flex-wrap items-center justify-center  ">
+                    <div className="flex h-[80vh] mt-4 md:h-[60vh] md:p-16 gap-y-2 md:gap-y-10 w-[100%] md:w-[70%] mx-auto flex-wrap items-center justify-center  ">
                    {SIDENAV_ITEMS_CASE.map((item, index) => (
                             <CardOption key={index} title={item.title} path={item.path} description={item.description} icon={item.icon} />
                     ))}
